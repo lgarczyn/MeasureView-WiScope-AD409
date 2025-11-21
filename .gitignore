@@ -1,0 +1,14 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build output
+*.zip
+
+# Personal notes (optional)
+notes.txt
+*.bak
+*.tmp
