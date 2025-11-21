@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Microscope Action</title>
+  <link rel="stylesheet" href="action_popup.css">
+  <style>
+    /* Add styles for the new input */
+    label {
+      font-size: 13px;
+      color: ButtonText;
+      margin-bottom: 4px;
+      display: block;
+    }
+    input[type="text"] {
+      width: 100%;
+      box-sizing: border-box; /* So padding doesn't break width */
+      padding: 6px;
+      margin-bottom: 8px;
+    }
+	#saveIpBtn {
+      height: 30px;
+      line-height: 1; /* Ensures text is vertically centered */
+      padding: 0 12px;
+      margin-bottom: 2px;
+      box-sizing: border-box;
+      width: 100%; /*  makes it full width like the input */
+    }
+    hr {
+      border: none;
+      border-top: 1px solid ThreeDShadow;
+      margin: 12px 0;
+    }
+  </style>
+</head>
+<body>
+  <button id="viewerBtn" data-i18n="openImageMeasure">Open Image Measurment</button>
+  <hr>
+  <button id="connectBtn" data-i18n="connectToMicroscope">Connect to Microscope</button>
+  <label for="ipInput" data-i18n="ipAddress">Microscope IP Address:</label>
+  <input type="text" id="ipInput">
+  <button id="saveIpBtn" data-i18n="save" >Save</button>
+  
+  <script src="i18next.js"></script>
+  <script src="i18nextHttpBackend.js"></script>
+  <script src="action_popup.js"></script>
+</body>
+</html>
