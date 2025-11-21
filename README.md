@@ -42,32 +42,27 @@ A Chrome extension that has two parts. The first part **MeasureView** (can be us
 2- Open Chrome and go to chrome://extensions/.  
 3- Enable Developer mode (toggle in the top right).  
 4- Click Load unpacked and select the Unzipped extension folder you created.  
-5- Done! 🎉
+5- Done! 🎉  
 
+Contributing  
+All Feature requests will be considered. For bug reports, please open an issue.
 
-### MeasureView Snapshot
+### MeasureView Screenshot
 
 
 ![MeasureView ScreenShot](images/MeasureViewScreen.png) 
 
-### WiScope AD409 Snapshot
+### WiScope AD409 Screenshot
 
 
 ![WiScope AD409 ScreenShot](images/WiScope_AD409_Screen.png) 
 
 
-Contributing
-All Feature requests will be considered. For bug reports, please open an issue.
-
-
 
 ---
 
-### 🔑 Notes
-- Replace `images/popup.png`, `images/options.png`, etc. with the actual filenames of your screenshots.
-- Use the **Markdown syntax** (`![Alt text](path)`) for simple inline images.
-- Use the **HTML `<img>` tag** if you want to control width or alignment (GitHub supports basic HTML in README files).
-- Keep screenshots in a dedicated folder like `images/` or `assets/` so your repo stays tidy.
+
+
 
 
 
