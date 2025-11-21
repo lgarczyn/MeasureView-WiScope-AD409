@@ -2,8 +2,9 @@
 
 
 ## Overview
-A Chrome extension that has two parts. The first part **MeasureView** (can be used alone or via the AD409 microscope control). MeasureView is a well featured  image Measurement tool thsat I originally built as a standalone extension and  may be released as standalone as it developes, easily calibrated in any measurement units and used to measure circuit board and image features where a degree of precision is required.
- The second part **WiScope AD409** is an experimental Wi-fi controller that allows Wi-Fi control of the Andonstar AD409 Inspection/soldering microscope from your PC. Use it to Manage the SD card and change microscope settings, show MJPEG low res preview and initiate/download snapshots/videos and seamless integration with **MeasureView**. I built this because the official AD409 software only supports wired USB connections. This project provides a more flexible, wireless alternative.
+A Chrome extension containing two tools. The first  **MeasureView** (can be used alone or via the AD409 microscope control). MeasureView is a well featured  image Measurement tool that I originally built as a stand-alone extension and  may be released as that as it developes, easily calibrated in any measurement units and used to measure circuit board and other features where a degree of precision is required.  
+
+ The second tool **WiScope AD409** is an experimental Wi-fi controller that allows Wi-Fi control of the Andonstar AD409 Inspection/soldering microscope from your PC. Use it to Manage the SD card and change microscope settings, show MJPEG low res preview and initiate/download snapshots/videos and seamless integration with **MeasureView**. I built this because the official AD409 software only supports wired USB connections. This project provides a more flexible, wireless alternative.
 
 
 
@@ -60,6 +61,7 @@ All Feature requests will be considered. For bug reports, please open an issue.
 
 
 ---
+
 
 
 
