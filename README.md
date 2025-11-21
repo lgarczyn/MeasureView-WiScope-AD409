@@ -20,9 +20,10 @@ A Chrome extension containing two tools. The first  **MeasureView** (can be used
 ---
 
 ## WiScope AD409 notes
- There is limited tech information available online about the **Andonstar AD409** but whilst testing It was found it uses a **Novatek camera and chipset** who also make dash/web cams, I found some of the Wi-Fi command syntax and codes from online sources that are used on some of their webcams. Probing the microscope with a web browser and Wireshark I found other AD409 specific Wi-Fi commands that allow control of this microscope, you can find those commands listed in a txt file within this repository.
+ There is limited tech information available online about the **Andonstar AD409** but whilst testing It was found it uses a **Novatek camera and chipset** who also make dash/web cams, I found some of the Wi-Fi command syntax and codes from online sources that are used on some of their webcams. Probing the microscope with a web browser and Wireshark I found other AD409 specific Wi-Fi commands that allow control of this microscope, you can find those commands listed in a txt file within this repository.  
+ 
 ⚠️ **Disclaimer / Warning**
- - Be cautious about using some of those commands as some of them have unknown effects and others (such as initiating a firmware update) may potentially **brick your microscope**  (i.e. corrupt or delete your microscopes own firmware which is not replaceable/available anywhere) . 
+- Be cautious about using some of those commands as some of them have unknown effects and others (such as initiating a firmware update) may potentially **brick your microscope**  (i.e. corrupt or delete your microscopes own firmware which is not replaceable/available anywhere) . 
 - Andonstar may have changed or may decide to change these commands on earlier/later versions of the AD409 than my own, so whilst this software works ok for my AD409, I can make no guarantees it will work ok for your AD409 microscope version, this is a unofficial/unsupported app I wrote for personal use.    
 
 ---
@@ -32,7 +33,7 @@ A Chrome extension containing two tools. The first  **MeasureView** (can be used
 2. Enable Wi-Fi from the AD409’s menu. The scope’s SSID and password will appear (default password is usually `12345678`).
 3. On your PC Wi-Fi 'show available networks' scan for the microscope’s SSID and connect using the password.
 4. Connection can be verfied by entering the microscope’s IP address into your browser (default: `http://192.168.1.254` ). The microscopes basic SD card home page should appear.
-5. ⚠️ If your PC relies on Wi-Fi for internet access, you may need a second Wi-Fi dongle to connect to both the microscope and the internet simultaneously.  
+5. If your PC relies on Wi-Fi for internet access, you may need a second Wi-Fi dongle to connect to both the microscope and the internet simultaneously.  
    note : The AD409 may also have an undocumented Wi-Fi client mode (see known commands.txt), enabling it to scan for and join a Wi-Fi server e.g., router, but it's unknown how to initiate a connection using this at present.
 6. Open from chromes extension tool bar and 'connect' to scope, optional limit the extensions 'Site access' to only the scopes IP address from chromes extension settings. 
 ----
@@ -61,6 +62,7 @@ All Feature requests will be considered. For bug reports, please open an issue.
 
 
 ---
+
 
 
 
