@@ -53,7 +53,7 @@ A Chrome extension that has two parts. The first part **MeasureView** (can be us
 ### WiScope AD409 Snapshot
 
 
-![WiScope AD409 ScreenShot](images/WiScope AD409 Screen.png) 
+![WiScope AD409 ScreenShot](images/WiScope_AD409_Screen.png) 
 
 
 Contributing
@@ -68,6 +68,7 @@ All Feature requests will be considered. For bug reports, please open an issue.
 - Use the **Markdown syntax** (`![Alt text](path)`) for simple inline images.
 - Use the **HTML `<img>` tag** if you want to control width or alignment (GitHub supports basic HTML in README files).
 - Keep screenshots in a dedicated folder like `images/` or `assets/` so your repo stays tidy.
+
 
 
 
