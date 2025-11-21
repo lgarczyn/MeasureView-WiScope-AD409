@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "MeasureView+",
+  "version": "1.0.0",
+  "description": "Image Measure tool and a Wi-Fi Control for Adonstar AD409 microscope",
+  "default_locale": "en",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+	"contextMenus"
+  ],
+  "host_permissions": [
+    "http://192.168.1.254/*"   
+  ],
+"optional_host_permissions": [
+    "http://*/*"
+ ],
+ "action": {
+  "default_title": "MeasureView + WiScope AD409",
+  "default_icon": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png",
+    "512": "icons/icon.png"
+  },
+  "default_popup": "action_popup.html"
+},
+"icons": {
+  "16": "icons/icon.png",
+  "48": "icons/icon.png",
+  "128": "icons/icon.png",
+  "512": "icons/icon.png"
+},
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "popup.html",
+        "popup.js",
+        "style.css",
+        "action_popup.html",
+        "action_popup.js",
+        "action_popup.css",
+		"locales/*/*.json"
+      ],
+      "matches": [
+       "http://*/*"
+      ]
+    }
+  ]
+}

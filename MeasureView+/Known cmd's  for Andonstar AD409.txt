@@ -1,0 +1,89 @@
+Wi-Fi Command strings for Andonstar AD409 microscope (uses a Novatek camera and chipset) some found from online sources, others by probing it with Wireshark and browser.  example command - http://192.168.1.254/?custom=1&cmd=2001&par=0  entered into browser address bar. Note microscope buttons are disabled when connected to Wi-Fi. 
+Preview streaming  is started by http://192.168.1.254:8192, this is a  low res MJpeg stream ( 640x380 in vid mode and 640x 480 photo mode at ~ 10-30 fps) is active when a device is listening on that port, it hogs 75% of the Wi-Fi bandwidth so downloading files from SD whilst this is active is far slower. To use photo snapshot - (jpg)  or record video- (mp4 format) will need to insert quality class 10 SD card, there is no way to stream the full resolution video live over Wi-Fi using the current microscope firmware . One way to achieve this would be by using small local pc or raspberry-pi 4/5 with HDMI capture dongle fed from the Scopes HDMI output (this disables the scopes own screen so would need another local display if that was needed).
+notes 1 :
+No direct way to query mode status of scope over WiFi but workaround is first check and/or stop any video recording cmd=2001 , we can then use video snapshot cmd (cmd=2017) (since not recording it wont take a snapshot) that will  return a status value that can tell us what mode AD409 is currently in .
+The firmware isn't that good and has many quirks and glitches (e.g., can't delete files that have spaces in the names and many others) that needed workarounds to get smooth Wi-Fi control, Maybe this was why Andonstar declared Wi-fi as an 'experimental' feature.
+notes 2 :  Some Wi-Fi commands, e.g., record movie to SD card (cmd=2001par=0 or 1), sometimes take immediate effect when the command is typed in a browser but not yet entered with the return key. 
+  
+example format of a Wi Fi command packet sent by browser-       HTTP	GET /?custom=1&cmd=2001&par=0 HTTP/1.1  par=0 stop or par=1 start recording to SD.
+ List of uncovered commands . 
+  cmd=          par=           function
+ 1001           0,1...       Takes a photo returns photo name , works only when in photo mode (3001 par=0),  will use resolution set by cmd 1002 .
+ 1002        0...10          Photo resolution 0=24M 1=20M 2=16M 3=12M 4=10M 5=8M 6=5M 7=3M 8=2M (1920 x 1080 16:9) 9=640x480 10=1280x960  .modes of higher res than 1920X1080 show little difference in quality (so maybe upscaling is going on).can be changed in any mode .
+ 1003                        Return <value>= freepic space number countdown
+
+ 2001           1,0          record movie to SD on/off (Res will be whatever Resolution was set at scope unless overridden) <status =2 means already off ?>
+ 2002     0,1,5,6,8,9,10     Set video  Resolution  0= 2880 X 2160 (24fps), 1 = 2560 x 1440 (30fps) , 5= 1920 x 1080  (60fps), 6= 1920 x 1080 (30fps) ,8 = 1280x 720 (120fps) , 9= 1280 x 720 (60fps) , 10=1280 x 720 (30fps) , can only be changed when in video mode. 
+ 2003                         loop record 0=off , 3 = 3min , 4 = 5min, 5 = 10minute
+ 2004           0,1          contrast/brightness ? only seems to be 2 settings.  ? set hdr ?
+ 2005           1-12         Exposure 0 is lightest 12 darkest - default = 6
+ 2006           1,0          set Motion detect  on/off starts recording for 10 seconds when the image moves 
+ 2007                        No obvious function  .status no change . (is audio on/off on webcams)
+ 2008           1,0          Set date watermark on/off
+ 2009                        returns <value> max recording time with current bitrate ?
+ 0210                        ? movie live view size ?  returns <-256> error status
+ 2012           1,0          Set wifi AutoRecording on/off this doesn't seem to have any visible effect .
+ 2013                       Crashes scope ?  movie record bitrate kb/s ?
+ 2014                       Crashes scope ? movie liveview bitrate kb/s ? 
+ 2015           1,0         ? start/stop liveview ? no effect 
+ 2016,3016                  start and end of streamed frames ? shows current movie record time in sec ?
+ 2017                       Take/save video Snapshot  par doesn't matter  (1980 x 1024 max res), must be currently recording to SD (cmd2001) for this to work .statuses returned 0,1 taken ok , -13 failed not currently recording , -22 failed not in video mode 
+ 2018                       No obvious effect returns blank screen ? get raw movie, or save snapshot file ?
+ 2019                       returns a liveviewinglink address always to ip:8192 ?
+ 2020          0,1,2,3,4    Camera brightness or contrast I believe (this has 4 settings contrast has 3 settings exposure has ~10)
+ 2021            0           No change in status or effect noticeable 
+ 2023          0,1,2,3       1= flip image horizontally , 2= flip  vertically, 3= rotate image 180
+ 2024          0,1,2,3,4    Set video Resolution  0 = 1920 X 1080 (60fps), 1 = 1280 X 738 (30fps), 2 = 864 x 480 (30fps), 3= 640x480 (30fps 4:3), 4= 320x240 (30fps) .Any video Snapshots will be caught at same res as movie.
+ 2025                       No obvious function ? bitrate control ?
+ 2026                       No obvious effect ? rtsp audio stream control on webcams ?
+
+
+3001           0,1,2        scope modes- 0 photo (res set by 1002), 1 video (also snapshot when recording) , 2 view files (this mode stops the preview stream),  (in photo mode 2017 2001 don't  work)
+3002                        list of possible cmd's
+3003                        Crashed scope (par0) ? set ssid ? 
+3004                        Crashed scope (par0)  ? set passphrase ?
+3005                        set date   str=date    yy-mm-dd
+3006                        set time   str=time    hh-mm-ss
+3007                        Turns on a auto power down after being on for a set period 
+3008          0...6         Language Setting 0= English 
+3009                         Frequency 50/60 hz ?
+3010           0,1          FORMATS SD card (without warning) (par=1)
+3011                        Reset to factory Default settings 
+3012                        Returns string=scope model family and scope version
+3013          0,1           Firmware Update! returns <status -15> ?   
+3014                        Returns a list of some commands and statuses .         ?    
+3015                        returns file list in movies dir (when in video mode) or all files when in in other modes 
+3016                        ? ping camera ?
+3017                        Returns two long <values> ? get sd card space ?
+3018       0,1              Wifi off/on  
+3019                        No noticeable function returns <value=5>, ? battery state on webcams ?
+3020                        no noticeable effect returns <status> -256 ? socket port 3333 error status ?
+3021                        No obvious function ? save all settings to sd card  ?
+3022                        No obvious function ? get HW capacity ?
+3023                        No obvious function ? remove last user for some web cams ?
+3024                        No obvious function ? get SD card status .<Value> 0=none 1=ins 2=locked
+3025                        Returns   <String>http://115.29.201.46:8020/download/filedesc.xml 
+3026                        Returns   <String>http://192.168.1.254/FWAD400A.BIN</String>
+3027                        upload file to SD card
+3028       0,1,2            freezes/unfreeze display, this has no effect on recording/snapshot, status cycles 0-2 every time written to  
+3029                        return wifi SSID and Password .
+3030                        returns a list of video mode screen resolutions and frame rates and types .
+3031                        str=all      ? return more cmnds ?
+3032                        Froze scope ? set up microscope for wifi client mode SSID:psw  ? e.g., http://192.168.1.254/?custom=1&cmd=3032&str=SSID:PASSWORD
+3033                        Not tried yet, turn on client mode (Default is A.P/Server mode), restart wifi using 3018 st=0 ?
+3034                        No noticable so function unknown
+
+3037                        No noticeable so function unknown
+3038          0,1           Returns a list of scanned wifi networks available.
+
+4001                        display files/thumbnail ?
+4002                         ? file path string  get screen preview ?
+4003                        str=file name   delete 1 file
+4004                        delete all files 
+5001                        displays a version of previous cmd output with an encoding error message ? upload file for some webcams ?.  
+
+8003                        Returns message 'no A:\test.htm file'  , 
+8004                        Returns list of information about scope and versions info sdk mac address etc .
+8008                        no obvious function, returns <status>=256 
+8072                        No obvious function
+8073                                     ?

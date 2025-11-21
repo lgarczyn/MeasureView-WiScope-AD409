@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AD409 Control</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+     <div id="mainControls">
+      <button id="connectBtn" data-i18n="connect">🔌 Connect</button>
+      <button id="modeBtn">Toggle Mode</button>
+      <button id="snapshotBtn" data-i18n="snapshot">📸 SnapShot</button>
+      <button id="recordBtn">Record</button>
+	  <button id="settingsBtn" data-i18n-title="settings" title="Settings">⚙️</button>
+	  <button id="previewBtn">Preview</button>
+    </div>
+
+    <div id="navControls">
+      <button id="homeBtn" data-i18n-title="home" title="Home">🏠 <span data-i18n="home">Home</span></button>
+      <button id="backBtn" data-i18n-title="back" title="Back">🔙 <span data-i18n="back">Back</span></button>
+      <button id="refreshBtn" data-i18n-title="refresh" title="Refresh">🔄 <span data-i18n="refresh">Refresh</span></button>
+    </div>
+  </div>
+
+
+  <dialog id="settingsModal">
+    <h3 data-i18n="settings">Settings</h3>
+    
+    <label for="photoResSelect" data-i18n="photoResolution">Photo Resolution:</label>
+    <select id="photoResSelect"></select>
+
+    <label for="videoResSelect" data-i18n="videoResolution">Video Resolution:</label>
+    <select id="videoResSelect"></select>
+    <label><input type="checkbox" id="dateStampToggle" /> <span data-i18n="dateStamp">Date Stamp</span></label>
+	    
+    <label for="langSelector"> <span>🌐</span> <span data-i18n="language">Language:</span>
+</label>
+    <select id="langSelector">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="it">Italiano</option>
+		<option value="nl">Nederlands</option>
+        <option value="pt">Português</option>
+		<option value="pl">Polski</option>
+		<option value="zh">中文</option>
+        <option value="ja">日本語</option>
+        <option value="hi">हिन्दी</option>
+		<option value="tr">Türkçe</option>
+		<option value="ru">Русский</option>
+        <option value="ro">Română</option>
+        <option value="uk">Українська</option>
+        </select>
+
+    <button id="viewerBtn" data-i18n="openViewer" style="margin-top: 9px;">Open Measure View</button> <br>
+	<button id="aboutBtn" data-i18n="about" style="margin-top: 9px;">About</button>
+    <button id="closeSettingsBtn" data-i18n="close" style="margin-top: 10px;">Close</button>
+  </dialog>
+  
+  <dialog id="aboutModal">
+  <h3 data-i18n="about">About</h3>
+  <p data-i18n="aboutVersion">WiScope v1.0 2024</p>
+  <p data-i18n="aboutAuthor">by Your Name</p>
+  <button id="closeAboutBtn" data-i18n="close">Close</button>
+</dialog>
+
+  <script src="i18next.js"></script>
+  <script src="i18nextHttpBackend.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

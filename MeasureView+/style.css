@@ -1,0 +1,118 @@
+/* Use system fonts and colors for a native feel */
+body, button, div, select, input, h3, label {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+  color: CanvasText; /* Default text color for application content */
+}
+
+body {
+  margin: 0;
+  padding: 4px;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+/* This rule is no longer needed because we removed the div from the HTML */
+/* #toolbarContainer { ... } */
+
+#mainControls, #navControls {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+button {
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+  padding: 8px 8px;
+  font-size: 13px;
+  /*cursor: pointer;*/
+  border: 1px solid ThreeDShadow; /* Border color for 3D elements */
+  border-radius: 5px;
+  background-color: ButtonFace; /* Background of buttons */
+  color: ButtonText; /* Text on buttons */
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1.1;  /* give a bit more space for 2 lines */
+}
+
+button:hover {
+  background-color: Highlight; /* Background of selected items */
+  color: HighlightText; /* Text of selected items */
+  border-color: Highlight;
+}
+
+button:active {
+  border-style: inset; /* Gives a "pressed" look */
+}
+
+/* Specific button styling */
+#settingsBtn {
+  flex-grow: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+#previewBtn {
+   flex-shrink: 0; /* Prevent buttons from shrinking */
+   padding: 4px 8px;
+   font-size: 13px;
+   line-height: 1;
+}
+
+	
+.preview-resolution {
+  font-size: 10px;   /* resolution font size */
+  color: GrayText;
+  position: relative;
+  top: 1px;      /* Nudge the text up slightly less, or adjust as needed */
+  display: block; /* Ensure it takes its own line */
+  line-height: 1.1; /* its own line-height compact */
+}
+
+/* --- Modal Styles --- */
+dialog {
+  width: 250px;
+  border: 1px solid ThreeDShadow;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  padding: 16px;
+  margin: 0;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: Canvas; /* Background of application content */
+  color: CanvasText;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+dialog h3 {
+  margin-top: 0;
+}
+
+dialog label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+dialog select, dialog input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid ThreeDShadow;
+  font-size: 13px;
+  background-color: Field; /* Background of input fields */
+  color: FieldText; /* Text in input fields */
+}
+
+
+dialog button#closeSettingsBtn {
+  margin-top: 15px;
+  width: 100%;
+}

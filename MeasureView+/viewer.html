@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>MeasureView</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: #111;
+    }
+    .input-with-hint {
+      display: flex;
+      flex-direction: column;   /* stack input and hint vertically */
+      align-items: flex-end;  /* align them to the left */
+    }
+
+    hint {
+      font-size: 0.8em;
+      color: #aaa;
+      margin-top: 2px;
+    }
+    #container {
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+      position: relative;
+    }
+    #img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: top left;
+      transition: transform 0.05s ease-out;
+    }
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none; /* clicks pass through */
+    }
+    #topBar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: flex-start;
+      z-index: 15;
+    }
+    #resolution {
+      margin-bottom: 6px; /* adjust to taste */
+     }
+
+    #infoPanel {
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 6px 10px;
+      font-family: sans-serif;
+      font-size: 14px;
+      border-radius: 4px;
+      user-select: none;
+      margin: 10px; /* keep your existing spacing */
+      flex-shrink: 0; /* don’t let it collapse */
+     }
+
+     #keyHelperBar {
+       flex: 0 1 auto;       /* don’t stretch, size to content shrink if need */
+       max-width: 950px;
+       margin: 10px 10px 0 5px; /* space from info panel */
+       background: rgba(0,0,0,0.7);
+       color: #ccc;
+       font-family: sans-serif;
+       font-size: 13px;
+       padding: 6px 10px;
+       white-space: nowrap;
+       overflow: hidden;
+       text-overflow: ellipsis;
+       border-radius: 4px;
+      } 
+
+    /* styles for colour pickers */
+    #colorControls input[type="color"] {
+      border: none;
+      padding: 0;
+      width: 28px;
+      height: 20px;
+      background: none;
+      cursor: pointer;
+    }
+    #colorControls label {
+      margin-right: 8px;
+    }
+    
+    /* settings modal styles */
+    #settingsBtn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 6;
+      line-height: 1;
+    }
+
+    /* CSS FOR FILE BUTTON */
+    #fileBtn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px; /* A little smaller to fit the icon */
+      cursor: pointer;
+      padding: 0 4px 0 0; /* Add some spacing to the right */
+      line-height: 1;
+    }
+
+    /* CSS FOR FILE MODAL */
+    #fileModal {
+        display: none;
+        position: absolute;
+        top: 140px;
+        left: 10px; 
+        background: rgba(40,40,40,0.95);
+        color: #fff;
+        padding: 15px;
+        font-family: sans-serif;
+        font-size: 14px;
+        border-radius: 8px;
+        z-index: 20;
+        border: 1px solid #666;
+        width: 260px;
+        max-height: calc(100vh - 170px);
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+    #fileModal h4 {
+      margin-top: 0;
+      text-align: center;
+      border-bottom: 1px solid #555;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    #fileModal button {
+      width: 100%;
+      padding: 6px;
+      cursor: pointer;
+    }
+
+    /* SETTINGS MODAL */
+    #settingsModal {
+        display: none;
+        position: absolute;
+        top: 140px;
+        left: 10px; 
+        background: rgba(40,40,40,0.95);
+        color: #fff;
+        padding: 15px;
+        font-family: sans-serif;
+        font-size: 14px;
+        border-radius: 8px;
+        z-index: 20;
+        border: 1px solid #666;
+        width: 260px;
+        max-height: calc(100vh - 170px);
+        overflow-y: auto; /*show scroll bars if modal exceeds calculated max hieght */
+        box-sizing: border-box;
+    }
+    #settingsModal h4 {
+      margin-top: 0;
+      text-align: center;
+      border-bottom: 1px solid #555;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    #settingsModal .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    #settingsModal .setting-item.with-hint {
+      align-items: flex-start;  /* only rows with helper notes align to the top */
+    }
+    #settingsModal button {
+      width: 100%;
+      padding: 6px;
+      cursor: pointer;
+    }
+     #settingsModal input[type="color"] {
+      border: 1px solid #777;
+      padding: 0;
+      width: 40px;
+      height: 22px;
+      background: none;
+      cursor: pointer;
+    }
+     #settingsModal input[type="number"] {
+        width: 55px;
+     }
+	 
+	 #helpBtn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 0 0 0 6px; /* Add some spacing to the left */
+      line-height: 1;
+    }
+
+    /* CSS FOR HELP MODAL  */
+	
+	 label[data-i18n="languageLabel"]::before {
+     content: "🌐 ";
+     }
+	 
+    #helpModal {
+        display: none;
+        position: absolute;
+        top: 140px;
+        left: 10px; /* Positioned to the right of settings modal */
+        background: rgba(40,40,40,0.95);
+        color: #fff;
+        padding: 15px;
+        font-family: sans-serif;
+        font-size: 14px;
+        border-radius: 8px;
+        z-index: 20;
+        border: 1px solid #666;
+        width: 420px; /* A bit wider for text */
+        max-height: calc(100vh - 170px);
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+    #helpModal h4 {
+      margin-top: 0;
+      text-align: center;
+      border-bottom: 1px solid #555;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    #helpModal .help-content {
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    #helpModal .info-section h5 {
+      margin-bottom: 5px;
+      margin-top: 10px;
+      color: #00ffff; /* Cyan title */
+    }
+    #helpModal .info-section p, #helpModal .info-section ul {
+      margin-top: 0;
+      color: #ddd;
+    }
+    #helpModal .info-section ul {
+      padding-left: 20px;
+    }
+    #helpModal .info-section li {
+      margin-bottom: 4px;
+    }
+    #helpModal .info-section code {
+      background: #222;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: monospace;
+      color: #eee;
+    }
+    #helpModal #languageSelect {
+      width: 120px;
+      background: #333;
+      color: white;
+      border: 1px solid #666;
+      padding: 4px;
+    }
+    
+    #aboutLink {
+      cursor: pointer;
+      color: #66bfff;
+      text-decoration: underline;
+    }
+    #aboutLink:hover {
+      color: #80ff00;
+    }
+
+    #aboutPopup {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(20,20,20,0.98);
+      color: #fff;
+      padding: 20px;
+      font-family: sans-serif;
+      font-size: 14px;
+      border-radius: 8px;
+      z-index: 30; /* Higher than the help modal (z-index 20) */
+      border: 1px solid #888;
+      width: 300px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    #aboutPopup h5 {
+      margin-top: 0;
+      color: #00ffff;
+      border-bottom: 1px solid #555;
+      padding-bottom: 8px;
+    }
+    #aboutPopup p {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+    #aboutPopup button {
+      width: 100px;
+      padding: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+	 
+  </style>
+</head>
+<body>
+ <div id="container">
+   <div id="topBar">
+    <div id="infoPanel">
+      <div id="filenameDisplay" class="filename-bar"></div>
+      <div id="resolution">Loading...</div> <!-- Dont use i18n here it's slow timing overides txt -->
+      <div id="measurement" data-i18n="measurementZoom" data-i18n-options='{ "val": "" }'>Zoom:</div>
+      <div id="mode" data-i18n="mode_view">Mode: View</div>
+      <div style="margin-top:5px;">
+       <button id="fileBtn" title="File Operations" data-i18n="[title]fileBtnTitle">📁</button> 
+       <button id="settingsBtn" title="Display Settings" data-i18n="[title]settingsBtnTitle">⚙️</button> 
+	   <button id="helpBtn" title="Help & About" data-i18n="[title]helpBtnTitle">?</button>
+      </div>
+    </div>
+    <div id="keyHelperBar"></div> </div>
+
+    <img id="img" draggable="false" />
+    <canvas id="overlay"></canvas>
+  </div>
+    
+  <div id="fileModal">
+    <h4 data-i18n="fileModalTitle">File Operations</h4>
+
+    <input type="file" id="loadImageInput" accept="image/*" style="display: none;">
+    <button id="loadImageBtn" data-i18n="loadImageBtn">Load Image (new tab)</button>
+
+    <hr style="border-color: #555; margin: 12px 0;">
+
+    <button id="saveImgBtn">
+      <span data-i18n="saveImgBtn">Save Image and Measurements</span><br>
+      <small data-i18n="saveImgBtnHint">(as single image)</small>
+    </button>
+    
+    <hr style="border-color: #555; margin: 12px 0;">
+
+    <button id="saveMeasurementsBtn" data-i18n="saveMeasurementsBtn">Save Measurements (JSON)</button>
+    <button id="loadMeasurementsBtn" data-i18n="loadMeasurementsBtn" style="margin-top: 8px;">Load Measurements (JSON)</button>
+  
+    <hr style="border-color: #555; margin: 12px 0;">
+  
+    <button id="saveCsvBtn" data-i18n="saveCsvBtn">Export Measurements (CSV)</button>
+
+    <hr style="border-color: #555; margin: 12px 0;">
+  
+    <button id="closeFileBtn" style="float: right;" data-i18n="closeBtn">Close</button>
+  </div>
+  <div id="settingsModal">
+  <h4 data-i18n="settingsModalTitle">Settings</h4>
+
+  <div class="setting-item">
+    <label for="lineColorPicker" data-i18n="lineColorLabel">Line Color:</label>
+    <input type="color" id="lineColorPicker">
+  </div>
+
+  <div class="setting-item">
+    <label for="highlightColorPicker" data-i18n="highlightColorLabel">Highlight Color:</label>
+    <input type="color" id="highlightColorPicker">
+  </div>
+
+  <div class="setting-item">
+    <label for="lineWidthInput" data-i18n="lineWidthLabel">Line Width (px):</label>
+    <input type="number" id="lineWidthInput" min="0.5" max="10" step="0.5">
+  </div>
+
+  <div class="setting-item">
+    <label for="endStyleSelect" data-i18n="endTickLabel">End Tick:</label>
+    <select id="endStyleSelect">
+      <option value="none" data-i18n="endStyle_none">None</option>
+      <option value="line" data-i18n="endStyle_gradTick">Grad tick</option>
+      <option value="line-medium" data-i18n="endStyle_line">Line</option>
+      <option value="arrow-line" data-i18n="endStyle_arrowLine">Arrow + Line</option>
+      </select>
+  </div>
+  
+  <div class="setting-item">
+    <label for="arrowSolidCheckbox" data-i18n="solidArrowheadLabel">Solid Arrowhead:</label>
+    <input type="checkbox" id="arrowSolidCheckbox">
+  </div>
+  
+  <hr style="border-color: #555; margin: 15px 0;">
+
+  <div class="setting-item">
+    <label for="textColorPicker" data-i18n="textColorLabel">Text Color:</label>
+    <input type="color" id="textColorPicker">
+  </div>
+
+  
+  <div class="setting-item with-hint">
+    <label for="fontSizeInput" data-i18n="fontSizeLabel">Font Size (px):</label>
+    <div class="input-with-hint">
+      <input type="number" id="fontSizeInput" min="0" step="1" value="14">
+      <small class="hint" data-i18n="fontSizeHint">0 to hide labels</small>
+    </div>
+  </div>
+   
+   <div class="setting-item">
+    <label for="solidTextBackgroundCheckbox" data-i18n="solidTextBGLabel">Solid Text BG:</label>
+    <input type="checkbox" id="solidTextBackgroundCheckbox">
+  </div>
+
+  <div class="setting-item">
+    <label for="textBgColorPicker" data-i18n="textBGColorLabel">Text BG Color:</label>
+    <input type="color" id="textBgColorPicker">
+  </div>
+  
+  <div class="setting-item">
+    <label for="scaleWithZoom" data-i18n="scaleWithZoomLabel">Scale Text & Line Width :</label>
+    <input type="checkbox" id="scaleWithZoom">
+  </div>
+
+  <hr style="border-color: #555; margin: 15px 0;">
+
+  <div class="setting-item">
+      <label for="brightnessSlider" data-i18n="brightnessLabel">Brightness:</label>
+      <input type="range" id="brightnessSlider" min="0" max="200" value="100" style="width: 120px;">
+  </div>
+
+  <div class="setting-item">
+      <label for="contrastSlider" data-i18n="contrastLabel">Contrast:</label>
+      <input type="range" id="contrastSlider" min="0" max="200" value="100" style="width: 120px;">
+  </div>
+  <div class="setting-item" style="justify-content: flex-end; margin-top: -5px;">
+    <button id="normalizeBtn" data-i18n="normalizeBtn" style="font-size: 11px; padding: 2px 8px; width: auto;">normalize</button>
+  </div>
+  
+  <div class="setting-item" style="margin-top: 5px;">
+    <label for="pixelInterpolationCheckbox" data-i18n="pixelInterpolationLabel">Pixel Interpolation:</label>
+    <input type="checkbox" id="pixelInterpolationCheckbox">
+  </div>
+  <hr style="border-color: #555; margin: 15px 0;">
+  
+  
+  <button id="closeSettingsBtn" style="float: right;" data-i18n="closeSettingsBtn">Close (Save Settings)</button>
+</div>
+
+ <div id="helpModal">
+    <h4 data-i18n="helpModalTitle">Help / About</h4>
+    
+    <div id="languageSelectContainer" class="setting-item">
+      <label for="languageSelect" data-i18n="languageLabel">Language:</label>
+      <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+		<option value="hi">हिन्दी</option>
+        <option value="it">Italiano</option>
+		<option value="ja">日本語</option>
+		<option value="nl">Nederlands</option>
+        <option value="pt">Português</option>
+		<option value="pl">Polski</option>
+		<option value="tr">Türkçe</option>
+		<option value="ru">Русский</option>
+        <option value="ro">Română</option>
+        <option value="uk">Українська</option>
+  
+      </select>
+    </div>
+
+    <hr style="border-color: #555; margin: 12px 0;">
+
+    <div class="help-content">
+      <div class="info-section">
+        <h5 id="aboutLink" data-i18n="aboutTitle">About</h5>
+        <p data-i18n="aboutParagraph">Microscope MeasureView. A browser-based tool
+          for viewing, calibrating, and measuring microscope images.
+		   
+        </p>
+      </div>
+      
+      <div class="info-section">
+        <h5 data-i18n="hotkeysTitle">Hotkeys</h5>
+        <ul id="hotkey-list">
+          </ul>
+      </div>
+
+      <div class="info-section">
+        <h5 data-i18n="usageTitle">Usage</h5>
+        <p data-i18n="usagePara1">
+          - <b>Modes:</b> Use hotkeys (like <code>M</code> for Measure)
+            or the context menu (right-click) to change modes.
+			ESC key whilst in those modes cancels them. C-A-M-Del will delete
+			the in progress measurment in those modes.
+        </p>
+        <p data-i18n="usagePara2">
+          - <b>Calibration:</b> Press <code>C</code>, Use a ruler in an image, click two points
+            and enter the known distance. Use ~50% of img width for good cal distance.
+			A saved calibration can be reused for images that use the same object lens and are at the same distance from the lens even if the pixel resolution/aspect ratio is changed.
+        </p>
+        <p data-i18n="usagePara3">
+          - <b>In View Mode:</b> (<code>Esc</code>) clears all after confirmation,
+            click near any endpoint to move it. Hover near a line 
+            to highlight and grab it's label. 
+        </p>
+      </div>
+    </div>
+
+    <hr style="border-color: #555; margin: 15px 0;">
+
+    <button id="closeHelpBtn" style="float: right;" data-i18n="closeBtn">Close</button>
+  </div>
+  <div id="aboutPopup">
+    <h5 data-i18n="aboutPopupTitle">About</h5>
+    <p data-i18n="version" data-i18n-options='{"version": "1.0"}'>Version: 1.0</p>
+    <p data-i18n="author">Author: Kevin Davis</p>
+    <p data-i18n="ideas">Any feature requests, message me:</p>
+    <p data-i18n="contact">Contact Info</p>
+    <button id="closeAboutPopup" data-i18n="closeBtn">Close</button>
+  </div>
+  <script src="i18next.js"></script>
+  <script src="i18nextHttpBackend.js"></script>
+  <script src="viewer.js"></script>
+</body>
+</html>
