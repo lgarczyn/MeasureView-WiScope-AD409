@@ -1,6 +1,11 @@
 # OS junk
 .DS_Store
 Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- Chrome Extension Safety ---
+*.pem
 
 # Logs
 *.log
@@ -11,4 +16,5 @@ Thumbs.db
 # Personal notes (optional)
 notes.txt
 *.bak
+
 *.tmp
