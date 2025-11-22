@@ -4,7 +4,7 @@
 ## Overview
 A Chrome extension containing two tools. The first  **MeasureView** (can be used alone or via the AD409 microscope control). MeasureView is a well featured  image Measurement tool that I originally built as a stand-alone extension and  may be released as that as it develops, easily calibrated in any measurement units and used to measure circuit board and other features where a degree of precision is required.  
 
- The second tool **WiScope AD409** is an experimental Wi-fi controller that allows Wi-Fi control of the Andonstar AD409 Inspection/soldering microscope from your PC. Use it to Manage the SD card and change microscope settings, show MJPEG low res preview and initiate/download snapshots/videos and seamless integration with **MeasureView**. I built this because the official AD409 software only supports wired USB connections. This project provides a more flexible, wireless alternative.
+ The second tool **WiScope AD409** is an experimental Wi-fi controller that allows Wi-Fi control of the Andonstar AD409 Inspection/soldering microscope from your PC. Use it to manage the SD card and change microscope settings, show MJPEG low res preview and initiate/download snapshots/videos and seamless integration with **MeasureView**. I built this because the official AD409 software only supports wired USB connections. This project provides a more flexible, wireless alternative.
 
 
 
@@ -20,10 +20,10 @@ A Chrome extension containing two tools. The first  **MeasureView** (can be used
 ---
 
 ## WiScope AD409 notes
- There is limited tech information available online about the **Andonstar AD409** but whilst testing It was found it uses a **Novatek camera and chipset** who also make dash/web cams, I found some of the Wi-Fi command syntax and codes from online sources that are used on some of their webcams. Probing the microscope with a web browser and Wireshark I found other AD409 specific Wi-Fi commands that allow control of this microscope, you can find those commands listed in a txt file within this repository.  
+ There is limited tech information available online about the **Andonstar AD409** but whilst testing It was found it uses a **Novatek camera and chipset** who also make dash/web cams, I found some of the Wi-Fi command syntax and codes from online sources that are used on some of their webcams. By probing the microscope with a web browser and Wireshark I found other AD409 specific Wi-Fi commands that allow control of this microscope, you can find those commands listed in a txt file within this repository.  
  
 ⚠️ **Disclaimer / Warning**
-- Be cautious about using some of those commands as some of them have unknown effects and others (such as initiating a firmware update) may potentially **brick your microscope**  (i.e. corrupt or delete your microscopes own firmware which is not replaceable/available from anywhere) . 
+- Be cautious about using some of those commands as some of them have unknown effects and others (such as initiating a firmware update) may potentially **brick your microscope**  (i.e. corrupt or delete your microscopes own firmware which is not replaceable/available from anywhere). 
 - Andonstar may have changed or may decide to change these commands on earlier/later versions of the AD409 than my own, so whilst this software works ok on my AD409, I can make no guarantees it will work ok for your AD409 microscope version, this is a unofficial/unsupported app I wrote for personal use.    
 
 ---
@@ -62,6 +62,7 @@ All Feature requests will be considered. For bug reports, please open an issue.
 
 
 ---
+
 
 
 
