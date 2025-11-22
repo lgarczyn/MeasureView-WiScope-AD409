@@ -33,9 +33,9 @@ A Chrome extension containing two tools. The first  **MeasureView** (can be used
 2. Enable Wi-Fi from the AD409’s menu. The scope’s SSID and password will appear (default password is usually `12345678`).
 3. On your PC Wi-Fi 'show available networks' scan for the microscope’s SSID and connect using the password.
 4. Connection can be verified by entering the microscope’s IP address into your browser (default: `http://192.168.1.254` ). The microscopes basic SD card home page should appear.
-5. If your PC relies on Wi-Fi for internet access, you may need a second Wi-Fi dongle to connect to both the microscope and the internet simultaneously.  
+5. If your PC relies on Wi-Fi for internet access and you want to connect to both the microscope and the internet simultaneously you will need a second Wi-Fi dongle.   
    note : The AD409 may also have an undocumented Wi-Fi client mode (see known commands.txt), enabling it to scan for and join a Wi-Fi server e.g., router, but it's unknown how to initiate a connection using this at present.
-6. Open from chromes extension tool bar and 'connect' to scope, optional limit the extensions 'Site access' to only the scopes IP address from chromes extension settings. 
+6. Open this extension from chromes extension tool bar and 'connect' to scope, optional limit the extensions 'Site access' to only the scopes IP address from chromes extension settings. 
 ----
 
 ## Installation
@@ -62,6 +62,7 @@ All Feature requests will be considered. For bug reports, please open an issue.
 
 
 ---
+
 
 
 
