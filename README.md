@@ -2,7 +2,7 @@
 
 
 ## Overview
-A Chrome extension containing two tools. The first  **MeasureView** (can be used alone or via the AD409 microscope control). MeasureView is a well featured  image Measurement tool that I originally built as a stand-alone extension and  may be released as that as it developes, easily calibrated in any measurement units and used to measure circuit board and other features where a degree of precision is required.  
+A Chrome extension containing two tools. The first  **MeasureView** (can be used alone or via the AD409 microscope control). MeasureView is a well featured  image Measurement tool that I originally built as a stand-alone extension and  may be released as that as it develops, easily calibrated in any measurement units and used to measure circuit board and other features where a degree of precision is required.  
 
  The second tool **WiScope AD409** is an experimental Wi-fi controller that allows Wi-Fi control of the Andonstar AD409 Inspection/soldering microscope from your PC. Use it to Manage the SD card and change microscope settings, show MJPEG low res preview and initiate/download snapshots/videos and seamless integration with **MeasureView**. I built this because the official AD409 software only supports wired USB connections. This project provides a more flexible, wireless alternative.
 
@@ -32,7 +32,7 @@ A Chrome extension containing two tools. The first  **MeasureView** (can be used
 1. Insert a **quality SD card** into the microscope before proceeding.
 2. Enable Wi-Fi from the AD409’s menu. The scope’s SSID and password will appear (default password is usually `12345678`).
 3. On your PC Wi-Fi 'show available networks' scan for the microscope’s SSID and connect using the password.
-4. Connection can be verfied by entering the microscope’s IP address into your browser (default: `http://192.168.1.254` ). The microscopes basic SD card home page should appear.
+4. Connection can be verified by entering the microscope’s IP address into your browser (default: `http://192.168.1.254` ). The microscopes basic SD card home page should appear.
 5. If your PC relies on Wi-Fi for internet access, you may need a second Wi-Fi dongle to connect to both the microscope and the internet simultaneously.  
    note : The AD409 may also have an undocumented Wi-Fi client mode (see known commands.txt), enabling it to scan for and join a Wi-Fi server e.g., router, but it's unknown how to initiate a connection using this at present.
 6. Open from chromes extension tool bar and 'connect' to scope, optional limit the extensions 'Site access' to only the scopes IP address from chromes extension settings. 
@@ -62,6 +62,7 @@ All Feature requests will be considered. For bug reports, please open an issue.
 
 
 ---
+
 
 
 
