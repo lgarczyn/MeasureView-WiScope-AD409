@@ -1,0 +1,70 @@
+{
+  "deleteSelectedFiles": {
+    "message": "Delete Selected Files",
+    "description": "Button text for deleting multiple selected files."
+  },
+  "alertNoFilesSelected": {
+    "message": "No files selected.",
+    "description": "Alert when the delete button is clicked with no files checked."
+  },
+  "contextMenuTitle": {
+    "message": "Open Image in MeasureView",
+    "description": "Title for the right-click context menu item."
+  },
+  "confirmDelete": {
+    "message": "Are you sure you want to delete $COUNT$ file(s)?",
+    "description": "Confirmation prompt before deleting files. $COUNT$ is a placeholder for the number of files.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "deleting": {
+    "message": "Deleting...",
+    "description": "Text shown on the delete button while files are being deleted."
+  },
+  "alertPleaseSelectFile": {
+    "message": "Please select a file to upload.",
+    "description": "Alert when the upload form is submitted with no file chosen."
+  },
+  "confirmRename": {
+    "message": "The filename contains spaces and will be renamed to:\n\n$FILENAME$\n\nDo you want to continue?",
+    "description": "Confirmation prompt when a filename is being sanitized. $FILENAME$ is a placeholder for the new name.",
+    "placeholders": {
+      "filename": {
+        "content": "$1",
+        "example": "new_file_name.jpg"
+      }
+    }
+  },
+  "uploading": {
+    "message": "Uploading...",
+    "description": "Text shown on the upload button during an upload."
+  },
+  "alertUploadSuccess": {
+    "message": "File uploaded successfully!",
+    "description": "Alert shown after a successful file upload."
+  },
+  "alertUploadFailed": {
+    "message": "Upload failed. Server responded with status: $STATUS$",
+    "description": "Alert shown when an upload fails due to a server error. $STATUS$ is a placeholder for the HTTP status.",
+    "placeholders": {
+      "status": {
+        "content": "$1",
+        "example": "404 Not Found"
+      }
+    }
+  },
+  "alertUploadError": {
+    "message": "An error occurred during upload: $MESSAGE$",
+    "description": "Alert shown when an upload fails due to a network or other error. $MESSAGE$ is a placeholder for the error message.",
+    "placeholders": {
+      "message": {
+        "content": "$1",
+        "example": "Network error"
+      }
+    }
+  }
+}

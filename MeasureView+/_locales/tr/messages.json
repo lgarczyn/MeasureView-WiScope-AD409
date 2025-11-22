@@ -1,0 +1,16 @@
+{
+  "deleteSelectedFiles": { "message": "Seçili Dosyaları Sil" },
+  "alertNoFilesSelected": { "message": "Hiçbir dosya seçilmedi." },
+  "contextMenuTitle": {
+    "message": "Görüntüyü MeasureView'de Aç",
+    "description": "Title for the right-click context menu item."
+  },
+  "confirmDelete": { "message": "$COUNT$ adet dosyayı silmek istediğinizden emin misiniz?", "placeholders": { "count": { "content": "$1" } } },
+  "deleting": { "message": "Siliniyor..." },
+  "alertPleaseSelectFile": { "message": "Lütfen yüklenecek bir dosya seçin." },
+  "confirmRename": { "message": "Dosya adı boşluk içeriyor ve yeni adı şu şekilde olacak:\n\n$FILENAME$\n\nDevam etmek istiyor musunuz?", "placeholders": { "filename": { "content": "$1" } } },
+  "uploading": { "message": "Yükleniyor..." },
+  "alertUploadSuccess": { "message": "Dosya başarıyla yüklendi!" },
+  "alertUploadFailed": { "message": "Yükleme başarısız oldu. Sunucu yanıt durumu: $STATUS$", "placeholders": { "status": { "content": "$1" } } },
+  "alertUploadError": { "message": "Yükleme sırasında bir hata oluştu: $MESSAGE$", "placeholders": { "message": { "content": "$1" } } }
+}

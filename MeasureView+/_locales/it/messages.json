@@ -1,0 +1,16 @@
+{
+  "deleteSelectedFiles": { "message": "Elimina File Selezionati" },
+  "alertNoFilesSelected": { "message": "Nessun file selezionato." },
+  "contextMenuTitle": {
+    "message": "Apri immagine in MeasureView",
+    "description": "Title for the right-click context menu item."
+  },
+  "confirmDelete": { "message": "Sei sicuro di voler eliminare $COUNT$ file?", "placeholders": { "count": { "content": "$1" } } },
+  "deleting": { "message": "Eliminazione in corso..." },
+  "alertPleaseSelectFile": { "message": "Seleziona un file da caricare." },
+  "confirmRename": { "message": "Il nome del file contiene spazi e verrà rinominato in:\n\n$FILENAME$\n\nVuoi continuare?", "placeholders": { "filename": { "content": "$1" } } },
+  "uploading": { "message": "Caricamento..." },
+  "alertUploadSuccess": { "message": "File caricato con successo!" },
+  "alertUploadFailed": { "message": "Caricamento non riuscito. Il server ha risposto con lo stato: $STATUS$", "placeholders": { "status": { "content": "$1" } } },
+  "alertUploadError": { "message": "Si è verificato un errore durante il caricamento: $MESSAGE$", "placeholders": { "message": { "content": "$1" } } }
+}

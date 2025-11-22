@@ -1,0 +1,16 @@
+{
+  "deleteSelectedFiles": { "message": "Supprimer les Fichiers Sélectionnés" },
+  "alertNoFilesSelected": { "message": "Aucun fichier sélectionné." },
+  "contextMenuTitle": {
+    "message": "Ouvrir l'image dans MeasureView",
+    "description": "Title for the right-click context menu item."
+  },
+  "confirmDelete": { "message": "Êtes-vous sûr de vouloir supprimer $COUNT$ fichier(s) ?", "placeholders": { "count": { "content": "$1" } } },
+  "deleting": { "message": "Suppression..." },
+  "alertPleaseSelectFile": { "message": "Veuillez sélectionner un fichier à téléverser." },
+  "confirmRename": { "message": "Le nom du fichier contient des espaces et sera renommé en :\n\n$FILENAME$\n\nVoulez-vous continuer ?", "placeholders": { "filename": { "content": "$1" } } },
+  "uploading": { "message": "Téléversement..." },
+  "alertUploadSuccess": { "message": "Fichier téléversé avec succès !" },
+  "alertUploadFailed": { "message": "Le téléversement a échoué. Le serveur a répondu avec le statut : $STATUS$", "placeholders": { "status": { "content": "$1" } } },
+  "alertUploadError": { "message": "Une erreur est survenue lors du téléversement : $MESSAGE$", "placeholders": { "message": { "content": "$1" } } }
+}

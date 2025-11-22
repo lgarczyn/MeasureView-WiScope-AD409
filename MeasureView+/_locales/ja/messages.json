@@ -1,0 +1,16 @@
+{
+  "deleteSelectedFiles": { "message": "選択したファイルを削除" },
+  "alertNoFilesSelected": { "message": "ファイルが選択されていません。" },
+  "contextMenuTitle": {
+    "message": "MeasureView で画像を開く",
+    "description": "Title for the right-click context menu item."
+  },
+  "confirmDelete": { "message": "本当に$COUNT$個のファイルを削除しますか？", "placeholders": { "count": { "content": "$1" } } },
+  "deleting": { "message": "削除中..." },
+  "alertPleaseSelectFile": { "message": "アップロードするファイルを選択してください。" },
+  "confirmRename": { "message": "ファイル名にスペースが含まれているため、新しい名前は次のようになります:\n\n$FILENAME$\n\n続行しますか？", "placeholders": { "filename": { "content": "$1" } } },
+  "uploading": { "message": "アップロード中..." },
+  "alertUploadSuccess": { "message": "ファイルのアップロードに成功しました！" },
+  "alertUploadFailed": { "message": "アップロードに失敗しました。サーバーの応答ステータス: $STATUS$", "placeholders": { "status": { "content": "$1" } } },
+  "alertUploadError": { "message": "アップロード中にエラーが発生しました: $MESSAGE$", "placeholders": { "message": { "content": "$1" } } }
+}

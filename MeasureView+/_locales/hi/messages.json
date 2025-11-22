@@ -1,0 +1,16 @@
+{
+  "deleteSelectedFiles": { "message": "चयनित फ़ाइलें हटाएँ" },
+  "alertNoFilesSelected": { "message": "कोई फ़ाइल नहीं चुनी गई।" },
+  "contextMenuTitle": {
+    "message": "MeasureView में छवि खोलें",
+    "description": "Title for the right-click context menu item."
+  },
+  "confirmDelete": { "message": "क्या आप वाकई $COUNT$ फ़ाइलें हटाना चाहते हैं?", "placeholders": { "count": { "content": "$1" } } },
+  "deleting": { "message": "हटाया जा रहा है..." },
+  "alertPleaseSelectFile": { "message": "कृपया अपलोड करने के लिए एक फ़ाइल चुनें।" },
+  "confirmRename": { "message": "फ़ाइल नाम में स्पेस है और इसका नाम बदलकर यह कर दिया जाएगा:\n\n$FILENAME$\n\nक्या आप जारी रखना चाहते हैं?", "placeholders": { "filename": { "content": "$1" } } },
+  "uploading": { "message": "अपलोड हो रहा है..." },
+  "alertUploadSuccess": { "message": "फ़ाइल सफलतापूर्वक अपलोड हो गई!" },
+  "alertUploadFailed": { "message": "अपलोड विफल। सर्वर ने स्थिति के साथ प्रतिक्रिया दी: $STATUS$", "placeholders": { "status": { "content": "$1" } } },
+  "alertUploadError": { "message": "अपलोड के दौरान एक त्रुटि हुई: $MESSAGE$", "placeholders": { "message": { "content": "$1" } } }
+}

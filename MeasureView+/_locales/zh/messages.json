@@ -1,0 +1,16 @@
+{
+  "deleteSelectedFiles": { "message": "删除所选文件" },
+  "alertNoFilesSelected": { "message": "未选择任何文件。" },
+  "contextMenuTitle": {
+    "message": "在 MeasureView 中打开图像",
+    "description": "Title for the right-click context menu item."
+  },
+  "confirmDelete": { "message": "您确定要删除$COUNT$个文件吗？", "placeholders": { "count": { "content": "$1" } } },
+  "deleting": { "message": "删除中..." },
+  "alertPleaseSelectFile": { "message": "请选择要上传的文件。" },
+  "confirmRename": { "message": "文件名包含空格，将重命名为：\n\n$FILENAME$\n\n您要继续吗？", "placeholders": { "filename": { "content": "$1" } } },
+  "uploading": { "message": "上传中..." },
+  "alertUploadSuccess": { "message": "文件上传成功！" },
+  "alertUploadFailed": { "message": "上传失败。服务器响应状态：$STATUS$", "placeholders": { "status": { "content": "$1" } } },
+  "alertUploadError": { "message": "上传过程中发生错误：$MESSAGE$", "placeholders": { "message": { "content": "$1" } } }
+}

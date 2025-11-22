@@ -1,0 +1,16 @@
+{
+  "deleteSelectedFiles": { "message": "Ausgewählte Dateien löschen" },
+  "alertNoFilesSelected": { "message": "Keine Dateien ausgewählt." },
+  "contextMenuTitle": {
+    "message": "Bild in MeasureView öffnen",
+    "description": "Title for the right-click context menu item."
+  },
+  "confirmDelete": { "message": "Möchten Sie wirklich $COUNT$ Datei(en) löschen?", "placeholders": { "count": { "content": "$1" } } },
+  "deleting": { "message": "Lösche..." },
+  "alertPleaseSelectFile": { "message": "Bitte wählen Sie eine Datei zum Hochladen aus." },
+  "confirmRename": { "message": "Der Dateiname enthält Leerzeichen und wird umbenannt in:\n\n$FILENAME$\n\nMöchten Sie fortfahren?", "placeholders": { "filename": { "content": "$1" } } },
+  "uploading": { "message": "Lade hoch..." },
+  "alertUploadSuccess": { "message": "Datei erfolgreich hochgeladen!" },
+  "alertUploadFailed": { "message": "Upload fehlgeschlagen. Der Server antwortete mit Status: $STATUS$", "placeholders": { "status": { "content": "$1" } } },
+  "alertUploadError": { "message": "Beim Upload ist ein Fehler aufgetreten: $MESSAGE$", "placeholders": { "message": { "content": "$1" } } }
+}

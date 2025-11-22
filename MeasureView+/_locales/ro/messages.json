@@ -1,0 +1,16 @@
+{
+  "deleteSelectedFiles": { "message": "Șterge Fișierele Selectate" },
+  "alertNoFilesSelected": { "message": "Niciun fișier selectat." },
+  "contextMenuTitle": {
+    "message": "Deschide Imaginea în MeasureView",
+    "description": "Title for the right-click context menu item."
+  },
+  "confirmDelete": { "message": "Sigur doriți să ștergeți $COUNT$ fișier(e)?", "placeholders": { "count": { "content": "$1" } } },
+  "deleting": { "message": "Ștergere..." },
+  "alertPleaseSelectFile": { "message": "Vă rugăm să selectați un fișier pentru încărcare." },
+  "confirmRename": { "message": "Numele fișierului conține spații și va fi redenumit în:\n\n$FILENAME$\n\nDoriți să continuați?", "placeholders": { "filename": { "content": "$1" } } },
+  "uploading": { "message": "Se încarcă..." },
+  "alertUploadSuccess": { "message": "Fișier încărcat cu succes!" },
+  "alertUploadFailed": { "message": "Încărcarea a eșuat. Serverul a răspuns cu starea: $STATUS$", "placeholders": { "status": { "content": "$1" } } },
+  "alertUploadError": { "message": "A apărut o eroare în timpul încărcării: $MESSAGE$", "placeholders": { "message": { "content": "$1" } } }
+}

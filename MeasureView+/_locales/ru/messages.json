@@ -1,0 +1,70 @@
+{
+  "deleteSelectedFiles": {
+    "message": "Удалить выбранные файлы",
+    "description": "Button text for deleting multiple selected files."
+  },
+  "alertNoFilesSelected": {
+    "message": "Файлы не выбраны.",
+    "description": "Alert when the delete button is clicked with no files checked."
+  },
+  "contextMenuTitle": {
+    "message": "Открыть изображение в MeasureView",
+    "description": "Title for the right-click context menu item."
+  },
+  "confirmDelete": {
+    "message": "Вы уверены, что хотите удалить $COUNT$ файл(ов)?",
+    "description": "Confirmation prompt before deleting files. $COUNT$ is a placeholder for the number of files.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "deleting": {
+    "message": "Удаление...",
+    "description": "Text shown on the delete button while files are being deleted."
+  },
+  "alertPleaseSelectFile": {
+    "message": "Пожалуйста, выберите файл для загрузки.",
+    "description": "Alert when the upload form is submitted with no file chosen."
+  },
+  "confirmRename": {
+    "message": "Имя файла содержит пробелы и будет переименовано в:\n\n$FILENAME$\n\nПродолжить?",
+    "description": "Confirmation prompt when a filename is being sanitized. $FILENAME$ is a placeholder for the new name.",
+    "placeholders": {
+      "filename": {
+        "content": "$1",
+        "example": "new_file_name.jpg"
+      }
+    }
+  },
+  "uploading": {
+    "message": "Загрузка...",
+    "description": "Text shown on the upload button during an upload."
+  },
+  "alertUploadSuccess": {
+    "message": "Файл успешно загружен!",
+    "description": "Alert shown after a successful file upload."
+  },
+  "alertUploadFailed": {
+    "message": "Ошибка загрузки. Сервер ответил со статусом: $STATUS$",
+    "description": "Alert shown when an upload fails due to a server error. $STATUS$ is a placeholder for the HTTP status.",
+    "placeholders": {
+      "status": {
+        "content": "$1",
+        "example": "404 Not Found"
+      }
+    }
+  },
+  "alertUploadError": {
+    "message": "Во время загрузки произошла ошибка: $MESSAGE$",
+    "description": "Alert shown when an upload fails due to a network or other error. $MESSAGE$ is a placeholder for the error message.",
+    "placeholders": {
+      "message": {
+        "content": "$1",
+        "example": "Network error"
+      }
+    }
+  }
+}
