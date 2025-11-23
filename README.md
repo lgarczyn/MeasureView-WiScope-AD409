@@ -40,7 +40,7 @@ A Chrome extension containing two tools. The first is **MeasureView** which can 
 
 ## Installation
  1- [Download the latest version from the releases page ](https://github.com/cloudspotter-Eng/MeasureView-WiScope-AD409/releases)
- and Unzip. 
+ and Unzip.   
 2- Open Chrome and go to chrome://extensions/.  
 3- Enable Developer mode (toggle in the top right).  
 4- Click Load unpacked and select the Unzipped extension folder you created.  
@@ -62,6 +62,7 @@ All Feature requests will be considered. For bug reports, please open an issue.
 
 
 ---
+
 
 
 
