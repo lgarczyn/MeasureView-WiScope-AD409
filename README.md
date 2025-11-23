@@ -47,7 +47,7 @@ A Chrome extension containing two tools. The first is **MeasureView** which can 
 5- Done! 🎉  
 
 Contributing  
-All Feature requests will be considered. For bug reports, please open an issue.
+All Feature requests will be considered. For bug reports, please contact or open an issue.
 
 ### MeasureView Screenshot
 
@@ -62,6 +62,7 @@ All Feature requests will be considered. For bug reports, please open an issue.
 
 
 ---
+
 
 
 
