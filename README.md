@@ -39,7 +39,7 @@ A Chrome extension containing two tools. The first is **MeasureView** which can 
 ----
 
 ## Installation
- 1- Clone or [Download the latest release](https://github.com/your-username/your-repo-name/releases/latest)
+ 1- Clone or [Download the latest release](https://github.com/cloudspotter-Eng/MeasureView-WiScope-AD409/releases/download/v1.0.0/MeasureView.V1.0.0.zip)
  and Unzip.  
 2- Open Chrome and go to chrome://extensions/.  
 3- Enable Developer mode (toggle in the top right).  
@@ -62,6 +62,7 @@ All Feature requests will be considered. For bug reports, please open an issue.
 
 
 ---
+
 
 
 
