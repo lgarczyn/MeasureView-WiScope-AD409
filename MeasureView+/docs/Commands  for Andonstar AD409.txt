@@ -8,8 +8,8 @@ notes 2 :  Some Wi-Fi commands, e.g., record movie to SD card (cmd=2001par=0 or 
 example format of a Wi Fi command packet sent by browser-       HTTP	GET /?custom=1&cmd=2001&par=0 HTTP/1.1  par=0 stop or par=1 start recording to SD.
  List of uncovered commands . 
   cmd=          par=           function
- 1001           0,1...       Takes a photo returns photo name , works only when in photo mode (3001 par=0),  will use resolution set by cmd 1002 .
- 1002        0...10          Photo resolution 0=24M 1=20M 2=16M 3=12M 4=10M 5=8M 6=5M 7=3M 8=2M (1920 x 1080 16:9) 9=640x480 10=1280x960  .modes of higher res than 1920X1080 show little difference in quality (so maybe upscaling is going on).can be changed in any mode .
+ 1001           0,1...       Takes a photo returns photo name , works only when in photo mode (3001 par=0),  will use resolution set by cmd 1002.
+ 1002        0...10          Photo resolution 0=24M 1=20M 2=16M 3=12M 4=10M 5=8M 6=2592x1944 7=2048x1536 8=(1920 x 1080 16:9) 9=640x480 10=1280x960  can be changed in any mode.
  1003                        Return <value>= freepic space number countdown
 
  2001           1,0          record movie to SD on/off (Res will be whatever Resolution was set at scope unless overridden) <status =2 means already off ?>
@@ -87,3 +87,4 @@ example format of a Wi Fi command packet sent by browser-       HTTP	GET /?custo
 8008                        no obvious function, returns <status>=256 
 8072                        No obvious function
 8073                                     ?
+
